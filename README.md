@@ -1,59 +1,27 @@
+# streamdeck-plugintemplate
 
-# Stream Deck Plugin Template
+The purpose of this repo was to document my scripting and automation process of creating new streamdeck plugins.  I wanted to be able to quickly create new template projects, as well as quickly build / install / integration test those projects.
 
-The `Stream Deck Plugin Template` is a boilerplate template to let you get started quickly when writing a Javascript plugin for [Stream Deck](https://developer.elgato.com/documentation/stream-deck/).
+---
 
-`Stream Deck Plugin Template` requires Stream Deck 4.1 or later.
+## `npm run setup`
 
-# Description
+This command will prepare you project for development from the starter template:
+ - If needed: downloads the DistributionTool.zip and unpacks it (for windows) to ./bin
+ - Prompts the user for a plugin identifier (com.elgato.template)
+ - Creates the Sources directory based off of the template
+ - Search replaces the provided plugin identifier throughout the template
+ - Creates a `build.target` file in the ./Scripts directory... This file simply keeps track of your project identifier 
 
-`Stream Deck Plugin Template` is a complete plugin that shows you how to
-- load and save settings using Stream Deck's persistent store
-- setup and communicate with the Property Inspector
-- pass messages directly from Property Inspector to the plugin (and vice versa)
-- localize your Property Inspector's UI to another language
-  
+---
 
-If you think about creating a Stream Deck plugin, it's a good idea to start with this template, because it already implements all code required to communicate from your plugin to the `Property Inspector` and to your `Stream Deck`.
+## `npm run build`
 
-There are also a bunch of utility helpers included, which makes it easy to process messages sent and received via Websockets.
+This command will utilize the `build.target` value created in setup and use the obtained DistributionTool.exe to create a release of your plugin.
 
-Together with the [`PISamples` library](https://github.com/elgatosf/streamdeck-pisamples/) it helps you create your full-fledged Stream Deck plugin fast.
+---
 
-## Features:
+### TODO
 
-Features:
-
-- code written in Javascript
-- cross-platform (macOS, Windows)
-- localization support
-- styled [Property Inspector](https://developer.elgato.com/documentation/stream-deck/sdk/property-inspector/) included
-- Property Inspector contains all required boilerplate code to let you instantly work on your plugin's code.
-
-----
-
-# Quickstart: From Template to Plugin in under a minute
-
-A short guide to help you getting started quickly.
-
-### Pre-requisites
-
-- Download or clone the template plugin.
-
-### Do a search/replace on strings in the template's files:
-
-Use your utility of choice (or your terminal) to do a full string replace using:
-
-Replace all occurences of:
-
-`com.elgato.template` with `your.identifier.plugin`
-
-and:
-
-`Stream Deck Template` with `Your Plugin Name`
-
-Fire up your preferred code-editor and open `app.js`.
-
-Remove what you don't need and start coding (e.g. in the `onKeyDown` method)
-
-Happy coding...
+- Automate plugin installation
+- Automate plugin uninstallation each build so they can be installed again
