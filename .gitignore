@@ -3,3 +3,5 @@ node_modules/
 Release/*.streamDeckPlugin
 bin/DistributionTool.*
 Scripts/build.target
+
+/Sources/*/

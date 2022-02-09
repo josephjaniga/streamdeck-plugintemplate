@@ -21,7 +21,17 @@ This command will utilize the `build.target` value created in setup and use the 
 
 ---
 
-### TODO
+## Debugging
+
+- On Windows, you will need to add a DWORD html_remote_debugging_enabled with value 1 in the registry @ HKEY_CURRENT_USER\Software\Elgato Systems GmbH\StreamDeck.
+
+http://localhost:23654/
+
+---
+
+## TODO
 
 - Automate plugin installation
-- Automate plugin uninstallation each build so they can be installed again
+  - the challenge here is the plugin installation seems to be gated by a manual click action of "accept this installtion".
+  - currently my automation will execute the plugin binary, but the user needs to click to confirm.
+- ~~Automate plugin uninstallation each build so they can be installed again~~
